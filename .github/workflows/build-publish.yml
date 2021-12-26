@@ -1,0 +1,74 @@
+---
+
+name: Build & Publish
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+  release:
+    types:
+      - created
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-20.04
+    container:
+      image: ghcr.io/karras/archlinux-package-build:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Refresh and update packages
+        run: |
+          pacman -Syu --noconfirm
+
+      - name: Build greetd
+        run: |
+          source ./packages
+          sudo -u builder ./build.sh $GREETD_URL $GREETD_VER
+
+      - name: Build greetd-gtkgreet
+        run: |
+          source ./packages
+          sudo -u builder ./build.sh $GREETD_GTKGREET_URL $GREETD_GTKGREET_VER
+
+      - name: Build wf-config
+        run: |
+          source ./packages
+          sudo -u builder ./build.sh $WF_CONFIG_URL $WF_CONFIG_VER
+
+      - name: Build wayfire
+        run: |
+          pacman -U /tmp/*pkgbuild/wf-config*.zst --noconfirm
+          source ./packages
+          sudo -u builder ./build.sh $WAYFIRE_URL $WAYFIRE_VER
+
+      - name: Prepare artifacts
+        run: |
+          mkdir ~/build
+          mv /tmp/*pkgbuild/*.zst ~/build/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          path: ~/build/*.zst
+
+      - name: Add packages to new release
+        if: github.event_name == 'release' && github.event.action == 'created'
+        run: |
+          pacman -S curl jq --noconfirm
+          RELEASE=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
+
+          for PACKAGE in ~/build/*.zst; do
+            curl -sSL \
+                 -X POST \
+                 -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -T ${PACKAGE} \
+                 --header "Content-Type: application/octet-stream" \
+                 https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets?name=${PACKAGE}
+          done
