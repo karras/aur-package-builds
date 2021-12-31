@@ -7,8 +7,8 @@ GREETD_VER="d7d5d086421f63d47c652f9ef6e3e32f982a0214"                # 0.8.0-1
 GREETD_GTKGREET_URL="https://aur.archlinux.org/greetd-gtkgreet.git"
 GREETD_GTKGREET_VER="5fbd53720dca0a8fd5d9b8c5e32734f2e30d097d"       # 0.7-1
 
-WF_CONFIG_URL="https://aur.archlinux.org/wf-config.git"
-WF_CONFIG_VER="8801ea78c3454133632a3fc100c114bb9fb3484b"             # 0.7.1-3
-
 WAYFIRE_URL="https://aur.archlinux.org/wayfire.git"
 WAYFIRE_VER="dd3b939729dda72b0f329ea7aff3e176c95f6b45"               # 0.7.2-1
+
+WF_CONFIG_URL="https://aur.archlinux.org/wf-config.git"
+WF_CONFIG_VER="8801ea78c3454133632a3fc100c114bb9fb3484b"             # 0.7.1-3
