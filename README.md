@@ -1,7 +1,6 @@
 # AUR Package Builds
 
-Arch Linux AUR package builds, published as GitHub Releases. Why? Well, so I
-don't have to do it manually.
+Arch Linux AUR package builds, published via GitHub Releases.
 
 ![GitHub](https://github.com/karras/aur-package-builds/workflows/Build%20&%20Publish/badge.svg?branch=main)
 
