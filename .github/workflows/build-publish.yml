@@ -26,37 +26,28 @@ jobs:
         run: |
           pacman -Syu --noconfirm
 
-      - name: Build greetd
+      - name: Import builder private key for package signing
         run: |
-          source ./packages
-          sudo -u builder ./build.sh $GREETD_URL $GREETD_VER
+          echo -e "${{ secrets.GPG_PRIVATE_KEY }}" | sudo -u builder gpg --import --batch --no-tty
 
-      - name: Build greetd-gtkgreet
+      - name: Initialize pacman secret key, import and trust builder public key
         run: |
-          source ./packages
-          sudo -u builder ./build.sh $GREETD_GTKGREET_URL $GREETD_GTKGREET_VER
+          pacman-key --init
+          pacman-key --add builder_public_key.asc
+          pacman-key --lsign-key 25267573FD638312C5EBE4C40C758F9503EDE7AF
 
-      - name: Build wf-config
+      - name: Build packages
         run: |
-          source ./packages
-          sudo -u builder ./build.sh $WF_CONFIG_URL $WF_CONFIG_VER
-
-      - name: Build wayfire
-        run: |
-          pacman -U /tmp/*pkgbuild/wf-config*.zst --noconfirm
-          source ./packages
-          sudo -u builder ./build.sh $WAYFIRE_URL $WAYFIRE_VER
-
-      - name: Prepare artifacts
-        run: |
-          mkdir ~/build
-          mv /tmp/*pkgbuild/*.zst ~/build/
+          sudo -u builder \
+            PACKAGE_AUTHOR="Builder <builder@0x539.ch>" \
+            PACKAGE_GPG_ID=25267573FD638312C5EBE4C40C758F9503EDE7AF \
+            ./build.sh
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: packages
-          path: ~/build/*.zst
+          path: /home/builder/build/*
 
       - name: Add packages to new release
         if: github.event_name == 'release' && github.event.action == 'created'
@@ -64,11 +55,11 @@ jobs:
           pacman -S curl jq --noconfirm
           RELEASE=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
 
-          for PACKAGE in ~/build/*.zst; do
+          for FILE in /home/builder/build/*; do
             curl -sSL \
                  -X POST \
                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                 -T ${PACKAGE} \
+                 -T ${FILE} \
                  --header "Content-Type: application/octet-stream" \
-                 https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets?name=${PACKAGE##*/}
+                 https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets?name=${FILE##*/}
           done
