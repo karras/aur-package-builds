@@ -6,7 +6,7 @@ Arch Linux AUR package builds, published via GitHub Releases.
 
 ## Packages
 
-The following packages are covered (see [package.lst](./package.lst)):
+The following packages are covered (see [packages.lst](./packages.lst)):
 
 * [greetd](https://aur.archlinux.org/packages/greetd/)
 * [greetd-gtkgreet](https://aur.archlinux.org/packages/greetd-gtkgreet/)
