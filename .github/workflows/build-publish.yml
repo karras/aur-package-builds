@@ -13,8 +13,7 @@ on:
     types:
       - created
   schedule:
-    - cron: "0/10 * * * *"
-#    - cron: "0 18 * * 5"
+    - cron: "0 18 * * 5"
 
 jobs:
   build-publish:
