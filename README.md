@@ -6,19 +6,38 @@ Arch Linux AUR package builds, published via GitHub Releases.
 
 ## Packages
 
-The following packages are covered (see [packages.lst](./packages.lst)):
+Among others the following packages are provided (see
+[packages.lst](./packages.lst)):
 
 * [greetd](https://aur.archlinux.org/packages/greetd/)
 * [greetd-gtkgreet](https://aur.archlinux.org/packages/greetd-gtkgreet/)
 * [wayfire](https://aur.archlinux.org/packages/wayfire/)
 * [wf-config](https://aur.archlinux.org/packages/wf-config/)
 
+## Repositories
+
+The built packages are provided as pacman repositories in the form of [GitHub
+releases](https://github.com/karras/aur-package-builds/releases). This makes it
+possible to conveniently install and update the packages directly without
+downloading them first.
+
+All packages and the repository databases are signed thus the [GPG
+key](./builder_public_key.asc) should be imported and trusted first (see
+instructions below).
+
+There are two types of repositories to choose from:
+
+* **[latest](https://github.com/karras/aur-package-builds/releases/tag/latest)**
+  Provides weekly updates of the most recent version of all packages
+
+* **[stable](https://github.com/karras/aur-package-builds/releases)**
+  All repositories (i.e. releases) with a semantic version are frozen and
+  considered stable, they will not be updated automatically. Instead new
+  releases will be created to update the packages.
+
 ## Usage
 
-The actual package builds can be found in the latest
-[Releases](https://github.com/karras/aur-package-builds/releases). All releases
-also include the required repository database in order to install them directly
-via pacman:
+Follow the below steps to install any of the available packages:
 
 * Import and trust the [package signing key](./builder_public_key.asc):
   ```sh
@@ -27,8 +46,13 @@ via pacman:
   ```
 
 * Add the repository to `/etc/pacman.conf` (replace `$RELEASE` in the URL with
-  the desired version):
+  the desired version or choose `latest`):
   ```ini
+  # Example latest repository
+  [karras]
+  Server = https://github.com/karras/aur-package-builds/releases/download/latest
+
+  # Example frozen repository
   [karras]
   Server = https://github.com/karras/aur-package-builds/releases/download/$RELEASE
   ```
