@@ -28,12 +28,14 @@ instructions below).
 There are two types of repositories to choose from:
 
 * **[latest](https://github.com/karras/aur-package-builds/releases/tag/latest)**
-  Provides weekly updates of the most recent version of all packages
+
+    Provides weekly updates of the most recent version of all packages
 
 * **[stable](https://github.com/karras/aur-package-builds/releases)**
-  All repositories (i.e. releases) with a semantic version are frozen and
-  considered stable, they will not be updated automatically. Instead new
-  releases will be created to update the packages.
+
+    All repositories (i.e. releases) with a semantic version are frozen and
+    considered stable, they will not be updated automatically. Instead new
+    releases will be created to update the packages.
 
 ## Usage
 
