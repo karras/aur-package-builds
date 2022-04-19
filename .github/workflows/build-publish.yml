@@ -54,15 +54,20 @@ jobs:
       - name: Add packages to the 'latest' release
         if: github.event_name == 'schedule'
         run: |
-          pacman -S curl --noconfirm
-          RELEASE="latest"
+          pacman -S curl jq --noconfirm
+          RELEASE=$(curl -sSL \
+                         -X GET \
+                         -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                         -H "Accept: application/vnd.github.v3+json" \
+                         https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/latest | jq '.id')
 
           for FILE in /home/builder/build/*; do
+            echo "Uploading package ${FILE}"
             curl -sSL \
                  -X POST \
                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Content-Type: application/octet-stream" \
                  -T ${FILE} \
-                 --header "Content-Type: application/octet-stream" \
                  https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets?name=${FILE##*/}
           done
 
@@ -73,10 +78,11 @@ jobs:
           RELEASE=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
 
           for FILE in /home/builder/build/*; do
+            echo "Uploading package ${FILE}"
             curl -sSL \
                  -X POST \
                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Content-Type: application/octet-stream" \
                  -T ${FILE} \
-                 --header "Content-Type: application/octet-stream" \
                  https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets?name=${FILE##*/}
           done
