@@ -92,8 +92,6 @@ done < "${PKG_CFG}"
 
 echo "Finished building all packages, check the '${PKGDEST}' directory"
 
-ls -al "${PKGDEST}"
-
 if [[ ! -z "${GPGKEY}" ]]; then
   echo "Creating package repository database and sign it with the GPG key '${GPGKEY}'"
   repo-add --sign "${PKGDEST}/karras.db.tar.xz" ${PKGDEST}/*.zst
