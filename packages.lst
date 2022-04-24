@@ -5,3 +5,4 @@ greetd-gtkgreet
 wf-config
 # Deactivated until release of 0.7.3 which supports wlroots 0.15
 #wayfire
+wlay-git
