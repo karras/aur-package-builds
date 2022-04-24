@@ -52,7 +52,7 @@ jobs:
           path: /home/builder/build/*
 
       - name: Add packages to the 'latest' release
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || github.ref == 'refs/heads/main'
         run: |
           pacman -S curl jq --noconfirm
           RELEASE=$(curl -sSL \
