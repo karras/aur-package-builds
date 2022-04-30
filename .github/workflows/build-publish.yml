@@ -61,8 +61,25 @@ jobs:
                          -H "Accept: application/vnd.github.v3+json" \
                          https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/latest | jq '.id')
 
+          OLD_ASSETS=$(curl -sSL \
+                         -X GET \
+                         -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                         -H "Accept: application/vnd.github.v3+json" \
+                         https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets | jq '.[] | select(.name | test("karras.")) | .id')
+
+          # The repository meta data files need to be deleted first in order to
+          # reupload and keep them up to date
+          for ASSET in ${OLD_ASSETS}; do
+            echo "Deleting asset ${ASSET}"
+            curl -sSL \
+                 -X DELETE \
+                 -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/assets/${ASSET}
+          done
+
           for FILE in /home/builder/build/*; do
-            echo "Uploading package ${FILE}"
+            echo "Uploading file ${FILE}"
             curl -sSL \
                  -X POST \
                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
@@ -78,7 +95,7 @@ jobs:
           RELEASE=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
 
           for FILE in /home/builder/build/*; do
-            echo "Uploading package ${FILE}"
+            echo "Uploading file ${FILE}"
             curl -sSL \
                  -X POST \
                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
