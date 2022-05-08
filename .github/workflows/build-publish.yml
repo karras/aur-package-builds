@@ -65,10 +65,10 @@ jobs:
                          -X GET \
                          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                          -H "Accept: application/vnd.github.v3+json" \
-                         https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets | jq '.[] | select(.name | test("karras.")) | .id')
+                         https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE}/assets | jq '.[] | .id')
 
-          # The repository meta data files need to be deleted first in order to
-          # reupload and keep them up to date
+          # Delete all assets of "latest" first in order to clean or reupload
+          # them. This will also knowingly remove any older package versions.
           for ASSET in ${OLD_ASSETS}; do
             echo "Deleting asset ${ASSET}"
             curl -sSL \
