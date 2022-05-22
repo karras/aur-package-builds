@@ -9,11 +9,12 @@ Arch Linux AUR package builds, published via GitHub Releases.
 Among others the following packages are provided (see
 [packages.lst](./packages.lst)):
 
-* [greetd](https://aur.archlinux.org/packages/greetd/)
-* [greetd-gtkgreet](https://aur.archlinux.org/packages/greetd-gtkgreet/)
-* [wayfire](https://aur.archlinux.org/packages/wayfire/)
-* [wf-config](https://aur.archlinux.org/packages/wf-config/)
-* [wlay-git](https://aur.archlinux.org/packages/wlay-git/)
+* [google-chrome](https://aur.archlinux.org/packages/google-chrome)
+* [greetd](https://aur.archlinux.org/packages/greetd)
+* [greetd-gtkgreet](https://aur.archlinux.org/packages/greetd-gtkgreet)
+* [wayfire](https://aur.archlinux.org/packages/wayfire)
+* [wf-config](https://aur.archlinux.org/packages/wf-config)
+* [wlay-git](https://aur.archlinux.org/packages/wlay-git)
 
 ## Repositories
 
