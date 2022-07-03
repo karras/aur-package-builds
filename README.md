@@ -13,6 +13,7 @@ Among others the following packages are provided (see
 * [greetd](https://aur.archlinux.org/packages/greetd)
 * [greetd-gtkgreet](https://aur.archlinux.org/packages/greetd-gtkgreet)
 * [wayfire](https://aur.archlinux.org/packages/wayfire)
+* [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
 * [wf-config](https://aur.archlinux.org/packages/wf-config)
 * [wlay-git](https://aur.archlinux.org/packages/wlay-git)
 
