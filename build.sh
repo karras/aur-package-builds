@@ -60,7 +60,8 @@ if [[ ! -f "${PKG_CFG}" ]]; then
 fi
 
 # Create temporary build directory
-readonly TMP_BUILD_DIR=$(mktemp --directory --suffix=pkgbuild)
+TMP_BUILD_DIR=$(mktemp --directory --suffix=pkgbuild)
+readonly TMP_BUILD_DIR
 
 # Create package destination directory if required
 echo "All packages will be placed in '${PKGDEST}'"
