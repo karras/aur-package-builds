@@ -28,6 +28,14 @@ jobs:
         run: |
           pacman -Syu --noconfirm
 
+      - name: Install lint dependencies
+        run: |
+          pacman -S --noconfirm shellcheck
+
+      - name: Lint shell scripts
+        run: |
+          shellcheck *.sh
+
       - name: Import builder private key for package signing
         run: |
           echo -e "${{ secrets.GPG_PRIVATE_KEY }}" | sudo -u builder gpg --import --batch --no-tty
