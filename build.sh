@@ -1,4 +1,4 @@
-#!/bin/sh -
+#!/bin/bash -
 #
 # Creates a temporary build directory in /tmp and builds all packages in there
 # based on the provided package list file. Also supports signing the packages
