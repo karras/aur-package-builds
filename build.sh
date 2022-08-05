@@ -80,7 +80,7 @@ while read -r PACKAGE; do
 
   # Build package
   cd "${TMP_BUILD_DIR}/${PACKAGE}"
-  if [[ ! -z "${GPGKEY}" ]]; then
+  if [[ -n "${GPGKEY}" ]]; then
     echo "Package will be built and signed with the GPG key '${GPGKEY}'"
     makepkg --noconfirm --syncdeps --install --sign
   else
@@ -91,7 +91,7 @@ done < "${PKG_CFG}"
 
 echo "Finished building all packages, check the '${PKGDEST}' directory"
 
-if [[ ! -z "${GPGKEY}" ]]; then
+if [[ -n "${GPGKEY}" ]]; then
   echo "Creating package repository database and sign it with the GPG key '${GPGKEY}'"
   repo-add --sign "${PKGDEST}/karras.db.tar.xz" ${PKGDEST}/*.zst
 else
