@@ -53,7 +53,6 @@ if [[ "$(id -u)" -eq 0 ]]; then
   exit 1
 fi
 
-echo $HOME
 # Check if package config file exists
 if [[ ! -f "${PKG_CFG}" ]]; then
   echo "No file named '${PKG_CFG}' found at script location, exiting..."
