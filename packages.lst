@@ -2,7 +2,8 @@
 # relevant if there are dependencies between the to be built packages.
 google-chrome
 greetd
-greetd-gtkgreet
+# Temporary deactived due to pending bug
+# greetd-gtkgreet
 wf-config
 wayfire
 wayland-logout
