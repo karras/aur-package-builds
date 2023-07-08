@@ -1,7 +1,7 @@
 # List of packages to build, each line contains a new package name. Order is
 # relevant if there are dependencies between the to be built packages.
 google-chrome
-wf-config
+#wf-config      # Provided by wayfire-git
 #wayfire        # Package build currently broken
 wayfire-git
 wayland-logout
