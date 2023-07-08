@@ -10,7 +10,7 @@ Among others the following packages are provided (see
 [packages.lst](./packages.lst)):
 
 * [google-chrome](https://aur.archlinux.org/packages/google-chrome)
-* [wayfire](https://aur.archlinux.org/packages/wayfire)
+* [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
 * [wf-config](https://aur.archlinux.org/packages/wf-config)
 * [wlay-git](https://aur.archlinux.org/packages/wlay-git)
@@ -23,6 +23,7 @@ is unmaintained or official builds are being provided:
 
 * [greetd](https://archlinux.org/packages/extra/x86_64/greetd)
 * [greetd-gtkgreet](https://archlinux.org/packages/extra/x86_64/greetd-gtkgreet/)
+* [wayfire](https://aur.archlinux.org/packages/wayfire)
 
 ## Repositories
 
@@ -74,9 +75,9 @@ Follow the below steps to install any of the available packages:
   pacman -Sy
   ```
 
-* Install the required packages (e.g. `wayfire`):
+* Install the required packages (e.g. `wayfire-git`):
   ```sh
-  pacman -S wayfire
+  pacman -S wayfire-git
   ```
 
 ## License

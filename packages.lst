@@ -2,6 +2,7 @@
 # relevant if there are dependencies between the to be built packages.
 google-chrome
 wf-config
-wayfire
+#wayfire        # Package build currently broken
+wayfire-git
 wayland-logout
 wlay-git
