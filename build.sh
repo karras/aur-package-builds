@@ -83,10 +83,10 @@ while read -r PACKAGE; do
   cd "${TMP_BUILD_DIR}/${PACKAGE}"
   if [[ -n "${GPGKEY}" ]]; then
     echo "Package will be built and signed with the GPG key '${GPGKEY}'"
-    makepkg --noconfirm --syncdeps --install --sign
+    makepkg --noconfirm --syncdeps --install --rmdeps --sign
   else
     echo "Package will be built without signing it"
-    makepkg --noconfirm --syncdeps --install
+    makepkg --noconfirm --syncdeps --install --rmdeps
   fi
 done < "${PKG_CFG}"
 
