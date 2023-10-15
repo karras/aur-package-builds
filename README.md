@@ -10,8 +10,10 @@ Among others the following packages are provided (see
 [packages.lst](./packages.lst)):
 
 * [google-chrome](https://aur.archlinux.org/packages/google-chrome)
+* [wayfire](https://aur.archlinux.org/packages/wayfire)
 * [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
+* [wf-config](https://aur.archlinux.org/packages/wf-config)
 * [wlay-git](https://aur.archlinux.org/packages/wlay-git)
 
 ### Deprecated
@@ -22,8 +24,6 @@ is unmaintained or official builds are being provided:
 
 * [greetd](https://archlinux.org/packages/extra/x86_64/greetd)
 * [greetd-gtkgreet](https://archlinux.org/packages/extra/x86_64/greetd-gtkgreet/)
-* [wayfire](https://aur.archlinux.org/packages/wayfire)
-* [wf-config](https://aur.archlinux.org/packages/wf-config)
 
 ## Repositories
 
