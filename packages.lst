@@ -3,6 +3,6 @@
 google-chrome
 wf-config
 wayfire
-wayfire-git
+# wayfire-git      # Conflicts with wayfire
 wayland-logout
 wlay-git
