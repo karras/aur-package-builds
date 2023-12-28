@@ -10,6 +10,7 @@ Among others the following packages are provided (see
 [packages.lst](./packages.lst)):
 
 * [google-chrome](https://aur.archlinux.org/packages/google-chrome)
+* [oidc-agent](https://aur.archlinux.org/packages/oidc-agent)
 * [wayfire](https://aur.archlinux.org/packages/wayfire)
 * [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
