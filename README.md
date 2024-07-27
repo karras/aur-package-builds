@@ -12,7 +12,6 @@ Among others the following packages are provided (see
 * [google-chrome](https://aur.archlinux.org/packages/google-chrome)
 * [oidc-agent](https://aur.archlinux.org/packages/oidc-agent)
 * [wayfire](https://aur.archlinux.org/packages/wayfire)
-* [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
 * [wf-config](https://aur.archlinux.org/packages/wf-config)
 * [wlay-git](https://aur.archlinux.org/packages/wlay-git)
@@ -25,6 +24,7 @@ is unmaintained or official builds are being provided:
 
 * [greetd](https://archlinux.org/packages/extra/x86_64/greetd)
 * [greetd-gtkgreet](https://archlinux.org/packages/extra/x86_64/greetd-gtkgreet/)
+* [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
 
 ## Repositories
 
