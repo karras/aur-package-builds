@@ -3,6 +3,6 @@
 google-chrome
 oidc-agent
 wf-config
-wayfire
+# wayfire         # Temporarily disabled due to AUR upstream package issues
 wayland-logout
 wlay-git

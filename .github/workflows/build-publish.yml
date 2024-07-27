@@ -51,11 +51,6 @@ jobs:
         run: |
           pacman -U --noconfirm https://archive.archlinux.org/packages/f/fakeroot/fakeroot-1.34-1-x86_64.pkg.tar.zst
 
-      # Upstream AUR PKGBUILD seems to have some issue at the moment
-      - name: Install wlroots 0.17 for Wayfire
-        run: |
-          pacman -S --noconfirm wlroots0.17
-
       - name: Build packages
         run: |
           sudo -u builder \
