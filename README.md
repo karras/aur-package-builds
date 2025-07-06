@@ -4,6 +4,11 @@ Arch Linux AUR package builds, published via GitHub Releases.
 
 [![Build & Publish](https://github.com/karras/aur-package-builds/actions/workflows/build-publish.yml/badge.svg)](https://github.com/karras/aur-package-builds/actions/workflows/build-publish.yml)
 
+## Why
+
+Providing a custom Arch repository using GitHub Releases (or Pages) can reduce
+the need for additional backend services.
+
 ## Packages
 
 Among others the following packages are provided (see
