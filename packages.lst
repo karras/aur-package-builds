@@ -1,6 +1,5 @@
 # List of packages to build, each line contains a new package name. Order is
 # relevant if there are dependencies between the to be built packages.
-google-chrome
 oidc-agent
 wf-config
 wayfire

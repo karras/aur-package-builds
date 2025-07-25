@@ -14,7 +14,6 @@ the need for additional backend services.
 Among others the following packages are provided (see
 [packages.lst](./packages.lst)):
 
-* [google-chrome](https://aur.archlinux.org/packages/google-chrome)
 * [oidc-agent](https://aur.archlinux.org/packages/oidc-agent)
 * [wayfire](https://aur.archlinux.org/packages/wayfire)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
@@ -27,6 +26,7 @@ The packages below were at some point built and provided by this project but
 then deprecated, either because they are no longer needed, the upstream project
 is unmaintained or official builds are being provided:
 
+* [google-chrome](https://aur.archlinux.org/packages/google-chrome)
 * [greetd](https://archlinux.org/packages/extra/x86_64/greetd)
 * [greetd-gtkgreet](https://archlinux.org/packages/extra/x86_64/greetd-gtkgreet/)
 * [wayfire-git](https://aur.archlinux.org/packages/wayfire-git)
