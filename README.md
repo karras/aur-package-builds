@@ -17,6 +17,7 @@ Among others the following packages are provided (see
 * [oidc-agent](https://aur.archlinux.org/packages/oidc-agent)
 * [wayfire](https://aur.archlinux.org/packages/wayfire)
 * [wayland-logout](https://aur.archlinux.org/packages/wayland-logout)
+* [wazuh-agent](https://aur.archlinux.org/packages/wazuh-agent)
 * [wf-config](https://aur.archlinux.org/packages/wf-config)
 * [wlay-git](https://aur.archlinux.org/packages/wlay-git)
 
