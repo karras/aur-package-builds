@@ -23,7 +23,7 @@ jobs:
       image: ghcr.io/karras/archlinux-package-build:latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Refresh and update packages
         run: |
