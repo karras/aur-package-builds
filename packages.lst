@@ -2,8 +2,8 @@
 # relevant if there are dependencies between the to be built packages.
 netbird-bin
 oidc-agent
-wf-config
-wayfire
+#wf-config
+#wayfire
 wayland-logout
 wlay-git
 #wazuh-agent-src
